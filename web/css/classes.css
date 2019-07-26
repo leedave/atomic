@@ -1,0 +1,71 @@
+/** Action Button **/
+body
+button,
+select,
+input,
+*
+{
+    touch-action: manipulation;
+}
+
+button {
+    cursor: pointer;
+}
+button[disabled=disabled]
+{
+    cursor: default;
+}
+button.animated {
+    display: inline-block;
+    min-width: 150px;
+    position: relative;
+}
+button.animated::after {
+    transform-style: preserve-3d;
+    transition-duration: 0.3s;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: "\f178";
+    margin-right: 10px;
+    position: absolute;
+    right: 10%;
+    top: 1px;
+}
+button.animated:hover::after {
+    right: 5%;
+}
+button.animated:active::after,
+button.animated:visited::after 
+{
+    right: 0%;
+}
+button[disabled=disabled].animated::after,
+button[disabled=disabled].animated:hover::after 
+{
+    right: 0%;
+    opacity: 0;
+}
+button.animated::before,
+button.animated:hover::before 
+{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: "\f110";
+    transform-style: preserve-3d;
+    transition-duration: 1s;
+    position: absolute;
+    left: 0%;
+    top: 1px;
+    opacity: 0;
+}
+button[disabled=disabled].animated::before,
+button[disabled=disabled].animated:hover::before 
+{
+    opacity: 1;
+    left: 15%;
+    animation-name: spin;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
