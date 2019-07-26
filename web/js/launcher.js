@@ -1,5 +1,8 @@
-var globalAosActionButton = new AosActionButton();
+var globalAtomicActionButton = new AtomicActionButton();
     
 jQuery(document).ready(function() {
-    globalAosActionButton.initAllItems();
+    setTimeout(function() {
+        globalAtomicActionButton.initAllItems();
+    }, 500);
+    
 });

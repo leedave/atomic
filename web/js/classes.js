@@ -14,7 +14,10 @@ function AtomicActionButton()
     
     this.setInactive = function() 
     {
-        myClass.element.attr('disabled', 'disabled');
+        setTimeout(function() {
+            myClass.element.attr('disabled', 'disabled');
+        }, 300);
+        
     };
     
     this.reset = function(targetId) 

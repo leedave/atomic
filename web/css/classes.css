@@ -1,4 +1,12 @@
 /** Action Button **/
+@keyframes spin { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
+}
+
 body
 button,
 select,
@@ -14,22 +22,42 @@ button {
 button[disabled=disabled]
 {
     cursor: default;
+    background-color: #ccc;
 }
 button.animated {
     display: inline-block;
     min-width: 150px;
     position: relative;
 }
-button.animated::after {
-    transform-style: preserve-3d;
-    transition-duration: 0.3s;
+
+button.secondary {
+    border: 1px solid #666;
+    background-color: #ccc;
+    color: #000;
+}
+
+button.animated::before,
+button.animated:hover::before,
+button.animated::after
+{
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    content: "\f178";
-    margin-right: 10px;
+    content: "\f110";
+    transform-style: preserve-3d;
+    transition-duration: 1s;
     position: absolute;
+    left: 0%;
+    top: 10px;
+    opacity: 0;
+}
+button.animated::after {
+    transition-duration: 0.3s;
+    content: "\f061";
+    margin-right: 10px;
+    left: auto;
     right: 10%;
-    top: 1px;
+    top: 10px;
+    opacity: 1;
 }
 button.animated:hover::after {
     right: 5%;
@@ -45,19 +73,7 @@ button[disabled=disabled].animated:hover::after
     right: 0%;
     opacity: 0;
 }
-button.animated::before,
-button.animated:hover::before 
-{
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    content: "\f110";
-    transform-style: preserve-3d;
-    transition-duration: 1s;
-    position: absolute;
-    left: 0%;
-    top: 1px;
-    opacity: 0;
-}
+
 button[disabled=disabled].animated::before,
 button[disabled=disabled].animated:hover::before 
 {
